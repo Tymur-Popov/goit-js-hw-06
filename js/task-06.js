@@ -1,17 +1,12 @@
-const placeholder = document.querySelector('#validation-input');
-console.log(placeholder);
-let placeholderLength = placeholder.dataset.length;
-console.log(placeholderLength);
-
-placeholder.addEventListener('blur', isValid);
-
-function isValid (value){
-    if (Number(placeholder.textContent.length) === Number(placeholder.length)) {
-        placeholder.classList.remove('invalid');
-        placeholder.classList.add('valid');
-    } else { placeholder.classList.remove('valid');
-             placeholder.classList.add('invalid');
-    }
-};
-   
-    
+const input = document.querySelector("#validation-input");
+const lengthEl = input.getAttribute("data-length");
+input.addEventListener("blur", validation);
+function validation() {
+  if (Number(lengthEl) === input.value.length) {
+    input.classList.remove("invalid");
+    input.classList.add("valid");
+  } else {
+    input.classList.remove("valid");
+    input.classList.add("invalid");
+  }
+}
